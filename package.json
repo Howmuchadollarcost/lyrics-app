@@ -1,0 +1,24 @@
+{
+  "name": "lyrics-app",
+  "version": "1.0.0",
+  "description": "amharic lyrics",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "lyrics"
+  ],
+  "author": "Muluberhan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.2",
+    "nodemon": "^1.19.1",
+    "path": "^0.12.7"
+  }
+}

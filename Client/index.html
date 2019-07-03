@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #eee;
+        width: 80%;
+        margin: 1em auto;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 1em;
+    }
+</style>
+
+<body>
+    <h1>Song Entry</h1>
+    <div class="row">
+        <form class="col s12" id="form">
+            <div class="input-field col s6">
+                <input placeholder="example: Teddy Afro" id="artist" type="text" class="validate" autocomplete="off">
+                <label for="artist">Artist Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="example: Lambadina" id="song" type="text" class="validate" autocomplete="off">
+                <label for="song">Song Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="example: Yastseryal" id="album" type="text" class="validate" autocomplete="off">
+                <label for="album">Album</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="example: 1995" id="year" type="number" class="validate" autocomplete="off">
+                <label for="year">Year</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="example: yasteseryal" id="link" type="text" class="validate" autocomplete="off">
+                <label for="link">Link</label>
+            </div>
+            <div class="input-field col s6">
+                    <input placeholder="../assets/teddy1.jpg" id="imgSrc" type="text" class="validate" autocomplete="off">
+                    <label for="imgSrc">Image Source</label>
+                </div>
+            <div class="input-field col s12">
+                <textarea id="content" class="materialize-textarea"></textarea>
+                <label for="content">Enter Song Lyrics</label>
+            </div>
+            <div class="col s12">
+                <button class="btn waves-effect" type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%# Head %>
+    <head>
+        <% include ./partials/head %>
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+    
+    <%# header %>
+    <header>
+        <% include ./partials/header %>
+    </header>
+
+    <%# main page %>
+        <!-- home -->
+    <div id="home">
+        <div class="container">
+            <div class="row">
+                <% include  ./partials/items %>
+            </div>
+        </div>
+    </div>
+
+    
+    </body>
+
+    <% include ./partials/scripts %>
+
+</html>
