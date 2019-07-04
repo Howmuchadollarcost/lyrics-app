@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="favicon.ico">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -27,6 +28,26 @@
     h1 {
         margin-bottom: 1em;
     }
+
+    #list_container{
+        display: grid;
+        grid-auto-flow: row;
+    }
+
+    .items{
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap:10px;
+        margin:10px;
+        border:1px solid #000;
+        align-content: center;
+    }
+
+    .remove{
+        display: grid;
+        justify-content: center;
+    }
+
 </style>
 
 <body>
@@ -64,8 +85,17 @@
             <div class="col s12">
                 <button class="btn waves-effect" type="submit">Submit</button>
             </div>
-
         </form>
+    </div>
+
+
+    <div id="list_container">
+        <div class="items">
+            <p>Name</p>
+            <p>Song</p>
+            <p>id</p>
+            <p>Delete?</p>
+        </div>
     </div>
 
     <script src="main.js"></script>

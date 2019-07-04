@@ -32,42 +32,55 @@ router.get('/', (req, res) => {
         if (err) {
             console.log("Error: ", err);
         }
-        console.log(songs);
+        res.render('indexPage', {
+            data: songs
+        })
     })
 
-    res.render('indexPage', {
-        data: data
+    // res.render('indexPage', {
+    //     data: data
+    // })
+});
+
+//Send all songs in JSON
+router.get('/songs', (req, res) => {
+    Song.find({}, (err, songs) => {
+        if (err) {
+            console.log("Error: ", err);
+        }
+        res.send(songs)
     })
 });
+
 
 // Read a single song
 router.get('/songs/:id', (req, res) => {
     Song.findOne({
-        song: req.params.id
-    }).exec((err, singleSong) => {
+        _id: req.params.id
+    }, (err, singleSong) => {
         if (err) {
-            console.log("Error: ", err)
-        } else {
-            res.send({
-                singleSong: singleSong
-            })
+            console.log("Error", err)
         }
+        res.render("songPage", {
+            artistName: singleSong.artistName,
+            songName: singleSong.songName,
+            imgSrc: singleSong.imgSrc,
+            year: singleSong.year,
+            content: singleSong.content
+        })
     })
 
 
+    // const song = data.filter((item) => {
+    //     return item.link == req.params.id;
+    // })[0];
 
-    const song = data.filter((item) => {
-        return item.link == req.params.id;
-    })[0];
-
-    console.log(song);
-
-    res.render("songPage", {
-        artistName: song.artistName,
-        songName: song.songName,
-        imgSrc: song.imgSrc,
-        year: song.year
-    })
+    // res.render("songPage", {
+    //     artistName: song.artistName,
+    //     songName: song.songName,
+    //     imgSrc: song.imgSrc,
+    //     year: song.year
+    // })
 });
 
 //Create A Song
@@ -94,12 +107,28 @@ router.post('/song', (req, res) => {
     song.save((err) => {
         if (err) {
             console.log(err);
-            res.send("Somthing wrong happened while saving into the DB");
+            res.send("Something wrong happened while saving into the DB");
         } else {
             console.log("Song Save to DB!!!")
             res.send(song);
         }
     });
 });
+
+
+// Delete Entry
+router.delete('/songs/:id', (req, res) => {
+    Song.remove({
+        song: req.params.id
+    }), (err) => {
+        if (err) {
+            console.log("Something happend while deleting ", err)
+        } else {
+            console.log('Song deleted')
+            res.redirect('/');
+        }
+    }
+})
+
 
 module.exports = router;
