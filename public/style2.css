@@ -13,13 +13,13 @@ body{
 	background-color: #eee;
 }
 
-h4{
+p{
 	padding:0;
 	margin:1em 0;
 	
 }
 
-h4 > a{
+p > a{
 	color: var(--primaryColor);
 }
 

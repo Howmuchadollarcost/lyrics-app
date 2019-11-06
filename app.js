@@ -4,8 +4,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const dotenv = require('dotenv');
 
-//set header
+//set header instead of cors()
 // app.use((req, res, next) => {
 //     res.append('Access-Control-Allow-Origin', ['*']);
 //     res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -25,6 +26,9 @@ app.use(bodyParser.urlencoded({
 //cors
 app.use(cors());
 
+//dotenv config
+dotenv.config();
+
 //default port
 const port = process.env.PORT || 3000;
 
@@ -32,8 +36,8 @@ const port = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 
 // mongoURI
+const mongoURI = process.env.DATABASE_URL;
 
-const mongoURI = "mongodb+srv://mulu123:mulu123@lyricscluster-gmbsg.mongodb.net/test?retryWrites=true&w=majority";
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, () => {}, {
